@@ -29,5 +29,5 @@ def delete_column(
     state["dataframe"] = dataframe
 
     state = athena_graph.invoke(state)
-
+    state["chat_response"] = "Column deleted successfully."
     return state

@@ -34,5 +34,5 @@ def sort_rows(
     state["dataframe"] = dataframe
 
     state = athena_graph.invoke(state)
-
+    state["chat_response"] = "Sorted successfully."
     return state

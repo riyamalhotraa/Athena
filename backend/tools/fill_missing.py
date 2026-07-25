@@ -63,4 +63,5 @@ def fill_missing(
 
     state = athena_graph.invoke(state)
 
+    state["chat_response"] = "Filled successfully."
     return state

@@ -32,7 +32,7 @@
 #         }
 
 from agents.tool_registry import TOOL_REGISTRY
-
+import traceback
 
 def execute(action, state):
     """
@@ -54,13 +54,16 @@ def execute(action, state):
             state=state,
             **action.parameters
         )
+        
 
-    except Exception as e:
-        print("EXECUTOR ERROR:", e)
+    # except Exception as e:
+    #     print("EXECUTOR ERROR:", e)
 
-        state["chat_response"] = (
-            "I'm sorry, but I couldn't complete that request. "
-            "It may not be supported yet or the provided parameters are invalid."
-        )
+    #     state["chat_response"] = (
+    #         "I'm sorry, but I couldn't complete that request. "
+    #         "It may not be supported yet or the provided parameters are invalid."
+    #     )
 
-        return state
+    except Exception:
+        traceback.print_exc()
+        raise

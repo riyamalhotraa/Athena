@@ -35,5 +35,5 @@ def replace_values(
     state["dataframe"] = dataframe
 
     state = athena_graph.invoke(state)
-
+    state["chat_response"] = "Replaced successfully."
     return state

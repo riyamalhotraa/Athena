@@ -65,5 +65,5 @@ def filter_rows(
     state["dataframe"] = dataframe
 
     state = athena_graph.invoke(state)
-
+    state["chat_response"] = "Filtered successfully."
     return state

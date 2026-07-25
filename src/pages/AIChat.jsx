@@ -84,6 +84,8 @@ export default function AIChat() {
 
     try {
       const response = await chatWithAthena(datasetId, content)
+      console.log("CHAT RESPONSE:", response);
+      console.log("PLOTS:", response.plots);
       const previous =
         JSON.parse(sessionStorage.getItem("analysisResult")) || {};
 

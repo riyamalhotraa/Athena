@@ -70,4 +70,5 @@ def plot_bar(
         f"Here's the bar chart for **{column}**."
     )
 
+    state["chat_response"] = "Chart created successfully."
     return state

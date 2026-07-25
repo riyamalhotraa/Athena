@@ -2,6 +2,25 @@ node_modules
 dist
 dist-ssr
 *.local
-.env
-.DS_Store
 *.log
+
+# Python
+backend/.venv/
+**/__pycache__/
+*.pyc
+
+# Backend generated files
+backend/uploads/
+backend/plots/
+
+# Environment variables
+.env
+backend/.env
+
+# Frontend
+node_modules/
+dist/
+
+# OS files
+.DS_Store
+Thumbs.db

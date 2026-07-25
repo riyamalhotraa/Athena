@@ -2,6 +2,8 @@ from state import AthenaState
 from tools.refresh_state import refresh_state
 from agents.graph import athena_graph
 
+from pathlib import Path
+
 # def rename_column(
 #     state: AthenaState,
 #     old_name: str,
@@ -61,5 +63,26 @@ def rename_column(state:AthenaState, old_name:str, new_name:str):
     state["dataframe"] = dataframe
 
     state = athena_graph.invoke(state)
+    plots = {}
+   
+    for key, value in state["plots"].items():
 
+        if value is None:
+            continue
+
+        elif isinstance(value, str):
+            filename = Path(value).name
+            state["plots"][key] = (
+                f"http://localhost:8000/plots/{filename}"
+            )
+
+        elif isinstance(value, list):
+            state["plots"][key] = [
+                f"http://localhost:8000/plots/{Path(p).name}"
+                for p in value
+                if p
+            ]
+
+    state["chat_response"] = "Renamed successfully."
+    state["plots"]= plots
     return state

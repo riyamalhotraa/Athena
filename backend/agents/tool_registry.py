@@ -1,7 +1,7 @@
 from tools.delete_column import delete_column
 from tools.rename_column import rename_column
 from tools.fill_missing import fill_missing
-from tools.answer_question import answer_question
+from tools.answer_from_state import answer_from_state
 from tools.remove_duplicates import drop_duplicates
 from tools.replace_values import replace_values
 from tools.convert_dtype import convert_dtype
@@ -13,7 +13,7 @@ from tools.visualization.scatter import plot_scatter
 from tools.visualization.box_plot import plot_box
 from tools.visualization.bar_chart import plot_bar
 from tools.visualization.heatmap import plot_heatmap
-from tools.create_summery import create_summery
+from tools.create_summary import create_summary
 
 TOOL_REGISTRY = {
     "delete_column": {
@@ -199,25 +199,17 @@ TOOL_REGISTRY = {
     },
 
     "create_summary": {
-            "description": (
-                "Generate or regenerate a complete summary of the current dataset, "
-                "including dataset information, statistics, missing values, and report."
-            ),
-            "function": create_summery,
+        "description": "Display the current dataset summary in the chat.",
+        "parameters": {},
+        "function": create_summary,
+    },
+
+    "answer_from_state": {
+        "description": "Answers questions using the current analysis state.",
+        "parameters":{
+            "question":str
         },
-
-    "answer_question": {
-
-        "function": answer_question,
-
-        "category": "qa",
-
-        "description": "Answer questions about the dataset.",
-
-        "parameters": {
-            "query": "User question"
-        }
-
-    }
+        "function": answer_from_state
+    },
 
 }
