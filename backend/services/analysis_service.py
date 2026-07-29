@@ -226,7 +226,7 @@ class AnalysisService:
 
             filename = path.replace("\\", "/").split("/")[-1]
 
-            return f"http://localhost:8000/plots/{filename}"
+            return f"https://athena-backend-pclz.onrender.com/plots/{filename}"
 
         plots["missing_values"] = convert_path(
             plots.get("missing_values")

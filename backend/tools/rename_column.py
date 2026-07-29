@@ -73,12 +73,12 @@ def rename_column(state:AthenaState, old_name:str, new_name:str):
         elif isinstance(value, str):
             filename = Path(value).name
             state["plots"][key] = (
-                f"http://localhost:8000/plots/{filename}"
+                f"https://athena-backend-pclz.onrender.com/plots/{filename}"
             )
 
         elif isinstance(value, list):
             state["plots"][key] = [
-                f"http://localhost:8000/plots/{Path(p).name}"
+                f"https://athena-backend-pclz.onrender.com/plots/{Path(p).name}"
                 for p in value
                 if p
             ]

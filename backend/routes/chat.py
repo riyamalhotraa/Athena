@@ -59,7 +59,7 @@ def chat(request: ChatRequest):
 
     if response.get("plot"):
         filename = os.path.basename(response["plot"])
-        plot_url = f"http://localhost:8000/plots/{filename}"
+        plot_url = f"https://athena-backend-pclz.onrender.com/plots/{filename}"
 
     print(response.keys())
 
