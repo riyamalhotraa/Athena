@@ -2,12 +2,11 @@ import { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import Icon from '../components/ui/Icon.jsx'
 import Button from '../components/ui/Button.jsx'
-import { useAuth } from '../hooks/useAuth.js'
+// import { useAuth } from '../hooks/useAuth.js'
 
 const ILLUSTRATION_SRC = '/assets/login-illustration.png'
 
 export default function Login() {
-  const { login, isLoading } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
   const [showPassword, setShowPassword] = useState(false)
