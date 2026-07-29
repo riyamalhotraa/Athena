@@ -32,7 +32,7 @@ app.mount("/plots", StaticFiles(directory="plots"), name="plots")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=["http://localhost:5173","https://main.d1sad0k7vuufrt.amplifyapp.com"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
